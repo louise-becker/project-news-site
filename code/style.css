@@ -1,54 +1,58 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   max-width: 100%;
 }
-html {
-  display: block;
+
+body {
+  background-color: #f4e2c6;
 }
 
 h1 {
   color: rgb(0, 0, 0);
   font-family: 'Bungee Inline', sans-serif;
-  font-size: 68px;
-  margin-bottom: 10px;
-  margin-top: 0px;
+  font-size: 40px;
+  margin: 10px 0;
   padding-top: 0px;
+  display: inline;
 }
 
-h2, h3 {
+/* Why did I have to put nav.navigation and not only.navigation for the display none to work? */
+
+h2,
+h3 {
   color: rgb(0, 0, 0);
   font-family: 'Bungee Inline', sans-serif;
 }
 
-a, li {
+a,
+li {
   color: rgb(0, 0, 0);
   font-family: 'Bungee Inline', sans-serif;
   font-weight: 800;
   text-decoration: none;
 }
 
-p { 
+p,
+.big-news-p {
   color: rgb(0, 0, 0);
-  font-family: 'Poppins', sans-serif; 
-}
-
-body{
-  background-color: #f4e2c6;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  padding: 3px;
 }
 
 header {
   height: 100px;
   background-color: whitesmoke;
-  margin-bottom: 30px;
+  display: block;
 }
 
 .header-container {
   height: 100px;
-  width: 90%;
+  width: 100%;
   margin: auto;
-  display: flex ;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: white;
@@ -75,7 +79,7 @@ header {
   padding-top: 0px;
 }
 
-.header-site-name { 
+.header-site-name {
   height: 100px;
   padding-top: 0px;
   display: flex;
@@ -84,7 +88,7 @@ header {
 
 .navigation {
   height: 100px;
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
@@ -99,75 +103,191 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  }
-   
-  li:hover {
-      text-decoration: underline;
-  }
-
-.big-news-parent-grid {
-display: grid;
-grid-template-columns: 1fr 2fr;
-height: wrap; 
-width: 90%;
-margin: auto;
-grid-gap: 10px;
-margin-bottom: 20px;
 }
 
-.big-picture{
-weight: 100 px;
+li:hover {
+  text-decoration: underline;
 }
 
-.big-news-text{
+.big-news-parent-box {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  margin-top: 10px;
+}
+
+.big-news-picture-box {
+  display: flex;
+}
+
+.big-news-text-box {
   font-size: 25px;
-  text-align: justify;
+  text-align: center;
   margin-top: 0px;
   text-size-adjust: auto;
 }
 
-.other-news-parent-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  height: wrap; 
-  width: 90%;
-  margin: auto;
-  grid-gap: 10px;
-  margin-bottom: 100px;
-  }
-  
-  .other-news-box{
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;
-  }
-  
-  .other-news-picture {
-  width: 300px;
-  height: auto;
-  }
-  
-  .other-news-text{
-    font-size: 20px;
-    text-align: justify;
-    margin-top: 0px;
-  }
-
-  .footer{
-    text-align: center; 
-    background-color: whitesmoke;
-  }
-  /* Tablet */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .header-site-name {
-      display: none;
-    }
-
+.other-news-parent-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-  /* Mobile */
-  @media (max-width: 768px) {
-    .navigation {
-        display: none;
-      }
-  
+
+@keyframes other-news-box-change-bg-color {
+  0% {
+    background-color: lemonchiffon;
   }
+  25% {
+    background-color: moccasin;
+  }
+  50% {
+    background-color: papayawhip;
+  }
+  100% {
+    background-color: peachpuff;
+  }
+}
+.other-news-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  background-color: white;
+  animation-name: other-news-box-change-bg-color;
+  animation-duration: 4s;
+  margin-bottom: 10px;
+}
+
+.other-news-picture {
+  width: auto;
+  height: auto;
+}
+
+.other-news-text {
+  font-size: 20px;
+  text-align: justify;
+  margin-top: 0px;
+}
+
+.footer {
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  h1 {
+    font-size: 45px;
+  }
+
+  .big-news-p {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  .navigation {
+    display: block;
+  }
+
+  .header-site-name {
+    display: none;
+  }
+
+  .header-logo-site-name-container {
+    justify-content: space-evenly;
+  }
+
+  .big-news-parent-box {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 5px 5px 15px 5px;
+    border-bottom: 2px dotted white;
+    justify-content: space-evenly;
+    padding-bottom: 10px;
+  }
+
+  .big-news-picture-box {
+    width: 43%;
+  }
+
+  .big-news-text-box {
+    width: 53%;
+  }
+
+  .other-news-parent-box {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .other-news-box {
+    width: 48%;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 68px;
+  }
+
+  .big-news-p {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: auto;
+  }
+
+  .navigation {
+    display: block;
+  }
+
+  nav.navigation {
+    display: flex;
+  }
+
+  header {
+    margin-bottom: 30px;
+  }
+
+  .header-container {
+    width: 90%;
+  }
+
+  .header-logo-site-name-container {
+    justify-content: space-evenly;
+  }
+
+  .big-news-parent-box {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 5px 5px 15px 5px;
+    border-bottom: 2px dotted white;
+    justify-content: space-evenly;
+    padding-bottom: 10px;
+  }
+
+  .big-news-picture-box {
+    width: 43%;
+  }
+
+  .big-news-text-box {
+    width: 53%;
+  }
+
+  .other-news-parent-box {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .other-news-box {
+    width: 24%;
+  }
+}
