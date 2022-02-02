@@ -8,4 +8,4 @@ I started too late and I didn't know the tools well enough to plan. However afte
 
 ## View it live
 
-https://news-site-proj-louise-becker.netlify.app/
+https://news-site-proj-by-louise.netlify.app
